@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-sm-5">
+    <h1 class="  my-5 text-white ms-5">Contact page</h1>
+    <form class="ms-5">
+        <div class="form-group text-white">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          
+        </div>
+        <div class="form-group text-white">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+        </div>
+        <div class="form-group text-white">
+            <label for="Number">Number</label>
+            <input type="integer" class="form-control" id="exampleInputNumber" placeholder="Enter Number">
+            <br>
+          </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% endblock content %}

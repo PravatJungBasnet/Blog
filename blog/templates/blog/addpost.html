@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-sm-8 ms-5">
+    <h1 class="text-white  ms-5 my-4">AddPost Page</h1>
+
+<form action="" method="post" class=" text-white">
+    {% csrf_token %}
+    {% for fm in form %}
+    {{fm.label_tag}}
+    {{fm}}
+    {{fm.errors}}
+    <br>
+    
+    {% endfor %}
+    <input type="submit" value="Add" class="btn btn-primary">
+    <a href="{% url 'das' %}" class="btn btn-danger">Cancel</a>
+</form>
+</div>
+{% endblock content %}

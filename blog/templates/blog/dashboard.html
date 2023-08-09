@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-sm-8 ms-5">
+    <h1 class="  my-5 text-white ms-5">Dashboard page</h1>
+    <a href="{% url 'add' %}" class="btn btn-primary ">Add Post</a>
+    <h3 class="text-center alert alert-info mt-3">Show Post Information</h3>
+    {% if pt %}
+    <table class="table text-white mt-4 ms-5">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Tittle</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+            {% for post in pt %}
+          <tr>
+           
+            <th scope="row">{{post.id}}</th>
+            <td>{{post.Tittle}}</td>
+            <td>{{post.desc}}</td>
+            
+            <td> <a href="{% url 'up' post.id %}" class="btn btn-warning">Edit</a></td>
+              <td> <form action="{% url 'del' post.id  %}" method="post">
+                {% csrf_token %}
+                <td> <input type="submit" value="Delete" class="btn btn-danger"></td>
+              </form></td>
+            
+           
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+      {% endif %}
+    {% endblock %}
